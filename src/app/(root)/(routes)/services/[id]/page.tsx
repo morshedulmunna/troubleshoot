@@ -64,7 +64,6 @@ export async function generateMetadata(
 
 export default async function Service({ params, searchParams }: Props) {
 	const service = await getService(`${params.id}`);
-
 	if (!service) {
 		notFound();
 	}

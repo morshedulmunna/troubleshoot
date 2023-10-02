@@ -11,15 +11,14 @@ import heroImage from "@/images/hero.png";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Rating } from "@/components/Ratings";
 
-interface ServicesProps {
-  services: Service[]; // Make sure the expected prop name and type match
+interface TrendingServicesProps {
+  TrendingServices: Service[]; // Make sure the expected prop name and type match
 }
-
-export const Services: React.FC<ServicesProps> = ({ services }) => {
+export const Services: React.FC<TrendingServicesProps> = ({ TrendingServices }) => {
   return (
     <Fragment>
       <div className="relative w-full grid xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-5">
-        {services?.map((service, i) => (
+        {TrendingServices?.map((service, i) => (
           <Service
             className={cn(i > 7 && "xl:hidden", i > 8 && "lg:hidden")}
             key={service.id}
@@ -35,6 +34,7 @@ interface ServiceProps {
   service: Service; // Make sure the expected prop name and type match
   className?: string;
 }
+
 
 export const Service: React.FC<ServiceProps> = ({ service, className }) => {
   return (
@@ -82,7 +82,8 @@ export const Service: React.FC<ServiceProps> = ({ service, className }) => {
   );
 };
 
-export const RecommendedServices = ({ zone = 1 }) => {
+
+export const TrendingServices = ({ zone = 1 }) => {
   const [loading, setLoading] = useState(true);
   const [services, setServices] = useState<Service[]>([]);
 
@@ -104,6 +105,8 @@ export const RecommendedServices = ({ zone = 1 }) => {
     getServices();
   }, []);
 
+  
+
   return (
     <Fragment>
       {loading ? (
@@ -119,7 +122,7 @@ export const RecommendedServices = ({ zone = 1 }) => {
         </Fragment>
       ) : (
         <Fragment>
-          <Services services={services} />
+          <Services TrendingServices={services} />
         </Fragment>
       )}
     </Fragment>
