@@ -13,6 +13,8 @@ import { RecommendedServices } from "@/components/section/Services";
 import { Heading } from "@/components/Heading";
 import { Button } from "@/components/Button";
 import { TrendingServices } from "@/components/section/TrendingServices";
+import { SeriviceSteps } from "@/components/section/ServiceSteps";
+import BlurImage from "@/components/BlurImage";
 
 export default function Home() {
   const { onOpen } = useAlertModal();
@@ -39,18 +41,12 @@ export default function Home() {
   return (
     <Contents className="max-w-7xl mx-auto ">
       {/* hero section */}
-      <Prose
-        enable={false}
-        className="relative w-full flex justify-center items-center"
-      >
+      <Prose enable={false} className="relative w-full flex justify-center items-center">
         <Hero />
       </Prose>
       {/* Categories section */}
       <div className="relative max-w-5xl mx-auto w-full space-y-8 py-8">
-        <Button
-          className="font-semibold bg-primary-500/90 hover:bg-primary-500 text-white rounded-xl px-4 py-2"
-          variant="filled"
-        >
+        <Button className="font-semibold bg-primary-500/90 hover:bg-primary-500 text-white rounded-xl px-4 py-2" variant="filled">
           All Recommended
         </Button>
 
@@ -60,10 +56,7 @@ export default function Home() {
       </div>
       {/* Services section */}
       <div className="relative max-w-5xl mx-auto w-full space-y-8 ">
-        <Button
-          className="font-semibold bg-primary-500/90 hover:bg-primary-500 text-white rounded-xl px-4 py-2"
-          variant="filled"
-        >
+        <Button className="font-semibold bg-primary-500/90 hover:bg-primary-500 text-white rounded-xl px-4 py-2" variant="filled">
           Recommended Services
         </Button>
 
@@ -72,16 +65,24 @@ export default function Home() {
         </Prose>
       </div>
       {/*Trending Services section */}
-      <div className="relative max-w-5xl mx-auto w-full space-y-8 ">
-        <Button
-          className="font-semibold bg-primary-500/90 hover:bg-primary-500 text-white rounded-xl px-4 py-2"
-          variant="filled"
-        >
-         Trending
+      <div className="relative max-w-5xl mx-auto w-full space-y-8  py-16">
+        <Button className="font-semibold bg-primary-500/90 hover:bg-primary-500 text-white rounded-xl px-4 py-2" variant="filled">
+          Trending
         </Button>
 
         <Prose enable={false} className="relative w-full ">
           <TrendingServices />
+        </Prose>
+      </div>
+
+      {/* Service workflow */}
+      <div className="relative max-w-5xl mx-auto w-full space-y-8  py-16">
+        <Button className="font-semibold bg-primary-500/90 hover:bg-primary-500 text-white rounded-xl px-4" variant="filled">
+          How IT Works
+        </Button>
+        <p className="text-2xl">Easiest way to get a service</p>
+        <Prose enable={false} className="relative w-full ">
+          <SeriviceSteps />
         </Prose>
       </div>
     </Contents>
