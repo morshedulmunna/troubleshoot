@@ -15,6 +15,7 @@ import { Button } from "@/components/Button";
 import { TrendingServices } from "@/components/section/TrendingServices";
 import { SeriviceSteps } from "@/components/section/ServiceSteps";
 import BlurImage from "@/components/BlurImage";
+import { WhyUs } from "@/components/section/WhyUs";
 
 export default function Home() {
   const { onOpen } = useAlertModal();
@@ -83,6 +84,16 @@ export default function Home() {
         <p className="text-2xl">Easiest way to get a service</p>
         <Prose enable={false} className="relative w-full ">
           <SeriviceSteps />
+        </Prose>
+      </div>
+
+      {/* Why us */}
+
+      <div className="relative max-w-5xl mx-auto w-full space-y-8  py-16 ">      
+        <p className="text-lg"> Why choose us ?</p>
+        <p className="text-4xl">We are at your side whenever you<br/> need...</p>
+        <Prose enable={false} className="relative w-full ">
+          <WhyUs />
         </Prose>
       </div>
     </Contents>
