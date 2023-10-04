@@ -1,5 +1,4 @@
 "use client";
-
 import { Fragment, useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { useAlertModal } from "@/hooks/use-alert-modal";
@@ -16,7 +15,9 @@ import { TrendingServices } from "@/components/section/TrendingServices";
 import { SeriviceSteps } from "@/components/section/ServiceSteps";
 import BlurImage from "@/components/BlurImage";
 import { WhyUs } from "@/components/section/WhyUs";
+import Line1 from "@/images/Line1.png";
 import { CompletionSummary } from "@/components/section/CompletionSummary";
+import { Reviews } from "@/components/section/Reviews";
 
 export default function Home() {
   const { onOpen } = useAlertModal();
@@ -41,20 +42,14 @@ export default function Home() {
   // }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
-    <Contents className="max-w-7xl mx-auto ">
+    <Contents className="min-w-full mx-auto ">
       {/* hero section */}
-      <Prose
-        enable={false}
-        className="relative w-full flex justify-center items-center"
-      >
+      <Prose enable={false} className="relative w-full flex justify-center items-center">
         <Hero />
       </Prose>
       {/* Categories section */}
       <div className="relative max-w-5xl mx-auto w-full space-y-8 py-8">
-        <Button
-          className="font-semibold bg-primary-500/90 hover:bg-primary-500 text-white rounded-xl px-4 py-2"
-          variant="filled"
-        >
+        <Button className="font-semibold bg-primary-500/90 hover:bg-primary-500 text-white rounded-xl px-4 py-2" variant="filled">
           All Recommended
         </Button>
 
@@ -64,10 +59,7 @@ export default function Home() {
       </div>
       {/* Services section */}
       <div className="relative max-w-5xl mx-auto w-full space-y-8 ">
-        <Button
-          className="font-semibold bg-primary-500/90 hover:bg-primary-500 text-white rounded-xl px-4 py-2"
-          variant="filled"
-        >
+        <Button className="font-semibold bg-primary-500/90 hover:bg-primary-500 text-white rounded-xl px-4 py-2" variant="filled">
           Recommended Services
         </Button>
 
@@ -77,10 +69,7 @@ export default function Home() {
       </div>
       {/*Trending Services section */}
       <div className="relative max-w-5xl mx-auto w-full space-y-8  py-16">
-        <Button
-          className="font-semibold bg-primary-500/90 hover:bg-primary-500 text-white rounded-xl px-4 py-2"
-          variant="filled"
-        >
+        <Button className="font-semibold bg-primary-500/90 hover:bg-primary-500 text-white rounded-xl px-4 py-2" variant="filled">
           Trending
         </Button>
 
@@ -91,10 +80,7 @@ export default function Home() {
 
       {/* Service workflow */}
       <div className="relative max-w-5xl mx-auto w-full space-y-8  py-16">
-        <Button
-          className="font-semibold bg-primary-500/90 hover:bg-primary-500 text-white rounded-xl px-4"
-          variant="filled"
-        >
+        <Button className="font-semibold bg-primary-500/90 hover:bg-primary-500 text-white rounded-xl px-4" variant="filled">
           How IT Works
         </Button>
         <p className="text-2xl">Easiest way to get a service</p>
@@ -104,21 +90,36 @@ export default function Home() {
       </div>
 
       {/* Why us */}
-
-      <div className="relative max-w-5xl mx-auto w-full space-y-8  py-16 ">
-        <p className="text-lg"> Why choose us ?</p>
-        <p className="text-4xl">
-          We are at your side whenever you
-          <br /> need...
-        </p>
-        <Prose enable={false} className="relative w-full ">
+      <div className="relative mx-auto w-full space-y-8 py-16 bg-primary-100">
+        <Prose enable={false} className="relative max-w-5xl mx-auto">
+          <div className="flex items-center">
+            <Image src={Line1} alt="Description" width={60} height={8} />
+            <p className="text-lg ml-5"> Why choose us ?</p>
+          </div>
+          <p className="text-4xl">
+            We are at your side whenever you
+            <br /> need...
+          </p>
           <WhyUs />
         </Prose>
       </div>
 
-      <div className="relative max-w-5xl mx-auto w-full space-y-8  py-16 ">
+      {/* CompletionSummary counting */}
+      <div className="relative mx-auto w-full space-y-8  py-16 bg-primary-500">
         <Prose enable={false} className="relative w-full ">
-          <CompletionSummary/>
+          <CompletionSummary />
+        </Prose>
+      </div>
+
+      <div className="relative mx-auto w-full space-y-8 py-16 ">
+        <Prose enable={false} className="relative max-w-5xl mx-auto">
+          <p className="text-4xl  text-gray-900 text-center mb-4 font-normal"> What our fantastic clinets say</p>
+          <p className="text-xl text-gray-900 text-center font-normal mb-6">
+            Some information or comments taken from those who have asked about our
+            <br />
+            services. People who are happy to work with us
+          </p>
+         <Reviews />
         </Prose>
       </div>
     </Contents>

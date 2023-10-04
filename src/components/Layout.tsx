@@ -24,7 +24,7 @@ export function Layout({ children = null, auth = null }: LayoutProps) {
 			<Prose
 				as="main"
 				className={cn(
-					"relative min-h-[calc(100vh-75px)] pt-24 lg:px-8 sm:px-7 xs:px-5 px-4 xl:overflow-visible overflow-hidden"
+					"relative min-h-[calc(100vh-75px)] pt-24  xl:overflow-visible overflow-hidden"
 				)}
 			>
 				{pathname == "/" && (
@@ -36,7 +36,7 @@ export function Layout({ children = null, auth = null }: LayoutProps) {
 			</Prose>
 			<Footer
 				// className={cn("absolute w-full bottom-0")}
-				className="py-6 lg:mt-10"
+				// className="py-6 lg:mt-10"
 			/>
 		</Fragment>
 	);
