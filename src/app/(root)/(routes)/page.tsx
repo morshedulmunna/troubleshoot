@@ -16,6 +16,7 @@ import { TrendingServices } from "@/components/section/TrendingServices";
 import { SeriviceSteps } from "@/components/section/ServiceSteps";
 import BlurImage from "@/components/BlurImage";
 import { WhyUs } from "@/components/section/WhyUs";
+import { CompletionSummary } from "@/components/section/CompletionSummary";
 
 export default function Home() {
   const { onOpen } = useAlertModal();
@@ -42,12 +43,18 @@ export default function Home() {
   return (
     <Contents className="max-w-7xl mx-auto ">
       {/* hero section */}
-      <Prose enable={false} className="relative w-full flex justify-center items-center">
+      <Prose
+        enable={false}
+        className="relative w-full flex justify-center items-center"
+      >
         <Hero />
       </Prose>
       {/* Categories section */}
       <div className="relative max-w-5xl mx-auto w-full space-y-8 py-8">
-        <Button className="font-semibold bg-primary-500/90 hover:bg-primary-500 text-white rounded-xl px-4 py-2" variant="filled">
+        <Button
+          className="font-semibold bg-primary-500/90 hover:bg-primary-500 text-white rounded-xl px-4 py-2"
+          variant="filled"
+        >
           All Recommended
         </Button>
 
@@ -57,7 +64,10 @@ export default function Home() {
       </div>
       {/* Services section */}
       <div className="relative max-w-5xl mx-auto w-full space-y-8 ">
-        <Button className="font-semibold bg-primary-500/90 hover:bg-primary-500 text-white rounded-xl px-4 py-2" variant="filled">
+        <Button
+          className="font-semibold bg-primary-500/90 hover:bg-primary-500 text-white rounded-xl px-4 py-2"
+          variant="filled"
+        >
           Recommended Services
         </Button>
 
@@ -67,7 +77,10 @@ export default function Home() {
       </div>
       {/*Trending Services section */}
       <div className="relative max-w-5xl mx-auto w-full space-y-8  py-16">
-        <Button className="font-semibold bg-primary-500/90 hover:bg-primary-500 text-white rounded-xl px-4 py-2" variant="filled">
+        <Button
+          className="font-semibold bg-primary-500/90 hover:bg-primary-500 text-white rounded-xl px-4 py-2"
+          variant="filled"
+        >
           Trending
         </Button>
 
@@ -78,7 +91,10 @@ export default function Home() {
 
       {/* Service workflow */}
       <div className="relative max-w-5xl mx-auto w-full space-y-8  py-16">
-        <Button className="font-semibold bg-primary-500/90 hover:bg-primary-500 text-white rounded-xl px-4" variant="filled">
+        <Button
+          className="font-semibold bg-primary-500/90 hover:bg-primary-500 text-white rounded-xl px-4"
+          variant="filled"
+        >
           How IT Works
         </Button>
         <p className="text-2xl">Easiest way to get a service</p>
@@ -89,11 +105,20 @@ export default function Home() {
 
       {/* Why us */}
 
-      <div className="relative max-w-5xl mx-auto w-full space-y-8  py-16 ">      
+      <div className="relative max-w-5xl mx-auto w-full space-y-8  py-16 ">
         <p className="text-lg"> Why choose us ?</p>
-        <p className="text-4xl">We are at your side whenever you<br/> need...</p>
+        <p className="text-4xl">
+          We are at your side whenever you
+          <br /> need...
+        </p>
         <Prose enable={false} className="relative w-full ">
           <WhyUs />
+        </Prose>
+      </div>
+
+      <div className="relative max-w-5xl mx-auto w-full space-y-8  py-16 ">
+        <Prose enable={false} className="relative w-full ">
+          <CompletionSummary/>
         </Prose>
       </div>
     </Contents>

@@ -47,9 +47,7 @@ export const Service: React.FC<ServiceProps> = ({ service, className }) => {
         )}
       >
         <div className="relative overflow-hidden h-44 bg-gray-50 flex items-center justify-center">
-          <BlurImage
-            // src="https://images.unsplash.com/photo-1692890846581-da1a95435f34?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1935&q=80"
-            // src={heroImage}
+          <BlurImage          
             src={service.image}
             alt=""
             width={400}
