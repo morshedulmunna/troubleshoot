@@ -13,7 +13,7 @@ import Line2 from "@/images/Line 2.png";
 
 export const Download = () => {
   return (
-    <div className="flow-root mt-10">
+    <div className="flow-root mt-20">
       <Button className="flex items-center  bg-primary-500/90 hover:bg-primary-500 text-white rounded-md px-6">
         <Image src={Line2} alt="Description" width={50} height={6} />
         <p className="text-lg ml-4 "> Downloda our App</p>
@@ -57,14 +57,6 @@ export const Download = () => {
   );
 };
 
-export const AppBanner = () => {
-  return (
-    <div>
-      <BlurImage src={AppBanner_img} alt="" className="h-auto" />
-    </div>
-  );
-};
-
 export const AppDownload = () => {
   return (
     <div className="relative w-full grid xl:grid-cols-5 lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-20">
@@ -72,7 +64,7 @@ export const AppDownload = () => {
         <Download />
       </div>
       <div className="col-span-2">
-        <AppBanner />
+        <BlurImage src={AppBanner_img} alt="" className="h-auto" />
       </div>
     </div>
   );

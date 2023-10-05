@@ -20,6 +20,7 @@ import Line1 from "@/images/Line1.png";
 import { CompletionSummary } from "@/components/section/CompletionSummary";
 import { Reviews } from "@/components/section/Reviews";
 import { AppDownload } from "@/components/section/AppDownload";
+import { AppointmentBook } from "@/components/section/AppointmentBook";
 
 export default function Home() {
   const { onOpen } = useAlertModal();
@@ -128,6 +129,12 @@ export default function Home() {
       <div className="relative mx-auto w-full space-y-8 py-5 ">
         <Prose enable={false} className="relative max-w-5xl mx-auto">
           <AppDownload />
+        </Prose>
+      </div>
+
+      <div className="relative mx-auto w-full space-y-8  py-16 bg-primary-500">
+        <Prose enable={false} className="relative w-full ">
+          <AppointmentBook />
         </Prose>
       </div>
     </Contents>
