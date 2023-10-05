@@ -16,8 +16,10 @@ import { SeriviceSteps } from "@/components/section/ServiceSteps";
 import BlurImage from "@/components/BlurImage";
 import { WhyUs } from "@/components/section/WhyUs";
 import Line1 from "@/images/Line1.png";
+
 import { CompletionSummary } from "@/components/section/CompletionSummary";
 import { Reviews } from "@/components/section/Reviews";
+import { AppDownload } from "@/components/section/AppDownload";
 
 export default function Home() {
   const { onOpen } = useAlertModal();
@@ -92,7 +94,7 @@ export default function Home() {
       {/* Why us */}
       <div className="relative mx-auto w-full space-y-8 py-16 bg-primary-100">
         <Prose enable={false} className="relative max-w-5xl mx-auto">
-          <div className="flex items-center">
+          <div className="flex items-center font-semibold">
             <Image src={Line1} alt="Description" width={60} height={8} />
             <p className="text-lg ml-5"> Why choose us ?</p>
           </div>
@@ -119,7 +121,13 @@ export default function Home() {
             <br />
             services. People who are happy to work with us
           </p>
-         <Reviews />
+          <Reviews />
+        </Prose>
+      </div>
+
+      <div className="relative mx-auto w-full space-y-8 py-5 ">
+        <Prose enable={false} className="relative max-w-5xl mx-auto">
+          <AppDownload />
         </Prose>
       </div>
     </Contents>

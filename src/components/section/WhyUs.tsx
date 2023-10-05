@@ -15,35 +15,33 @@ import { Rating } from "@/components/Ratings";
 
 export const WhyChooseUs = () => {
   return (
-    <Fragment>
-      <div className="flow-root">
-        <ul role="list">
-          <li className="py-3  px-6 sm:py-4 mt-4 bg-primary-50 rounded-lg">
-            <div className="flex items-center space-x-4">
-              <div className="flex-shrink-0">
-                <BlurImage src={support_icon} alt="" className="w-12 h-12 " />
-              </div>
-              <div className="flex-1 min-w-0">
-                <p className="text-xl font-medium text-gray-900 truncate dark:text-white">24/7 Support</p>
-              </div>
+    <div className="flow-root">
+      <ul role="list">
+        <li className="py-3  px-6 sm:py-4 mt-4 bg-primary-50 rounded-lg">
+          <div className="flex items-center space-x-4">
+            <div className="flex-shrink-0">
+              <BlurImage src={support_icon} alt="" className="w-12 h-12 " />
             </div>
-            <p className="text-lg  dark:text-gray-400">our support team i ready for you 24 hour a day and night</p>
-          </li>
+            <div className="flex-1 min-w-0">
+              <p className="text-xl font-medium text-gray-900 truncate dark:text-white">24/7 Support</p>
+            </div>
+          </div>
+          <p className="text-lg  dark:text-gray-400">our support team i ready for you 24 hour a day and night</p>
+        </li>
 
-          <li className="py-3 px-6 sm:py-4 mt-4 bg-primary-50 rounded-lg ">
-            <div className="flex items-center space-x-4">
-              <div className="flex-shrink-0">
-                <BlurImage src={service_chooseUsIcon} alt="" className="w-12 h-12 " />
-              </div>
-              <div className="flex-1 min-w-0">
-                <p className="text-xl font-medium text-gray-900 truncate dark:text-white">Dedicated Support</p>
-              </div>
+        <li className="py-3 px-6 sm:py-4 mt-4 bg-primary-50 rounded-lg ">
+          <div className="flex items-center space-x-4">
+            <div className="flex-shrink-0">
+              <BlurImage src={service_chooseUsIcon} alt="" className="w-12 h-12 " />
             </div>
-            <p className="text-lg dark:text-gray-400">From data backup to IT problem, you will find solutions to all problems with us.</p>
-          </li>
-        </ul>
-      </div>
-    </Fragment>
+            <div className="flex-1 min-w-0">
+              <p className="text-xl font-medium text-gray-900 truncate dark:text-white">Dedicated Support</p>
+            </div>
+          </div>
+          <p className="text-lg dark:text-gray-400">From data backup to IT problem, you will find solutions to all problems with us.</p>
+        </li>
+      </ul>
+    </div>
   );
 };
 
@@ -57,11 +55,9 @@ export const WhyChooseUsBanner = () => {
 
 export const WhyUs = () => {
   return (
-    <Fragment>
-      <div className="relative w-full grid xl:grid-cols-2 lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-16">
-        <WhyChooseUs />
-        <WhyChooseUsBanner />
-      </div>
-    </Fragment>
+    <div className="relative w-full grid xl:grid-cols-2 lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-16">
+      <WhyChooseUs />
+      <WhyChooseUsBanner />
+    </div>
   );
 };
