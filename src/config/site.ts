@@ -1,155 +1,178 @@
 import type { FooterItem, MainNavItem } from "@/types/types";
+import SiteLogo from "@/images/logos/logo.png";
+import dock from "@/images/dock.png";
+import mail from "@/images/mail.png";
+import distance from "@/images/distance.png";
+import facebook from "@/images/facebook.png";
+import youtube from "@/images/youtube.png";
+import linkedin from "@/images/linkedin.png";
 
 export type SiteConfig = typeof siteConfig;
 
 const links = {
-  twitter: "https://twitter.com/",
-  github: "https://github.com/",
-  githubAccount: "https://github.com/",
-  discord: "https://discord.com/",
-  calDotCom: "https://cal.com/",
+  eamil: "info@troubleshoot.com.bd",
 };
 
 export const siteConfig = {
-  name: "Projectzero",
-  description:
-    "Adipisicing sit ipsum amet nulla dolor aute voluptate ipsum do ipsum..",
+  logo: SiteLogo,
+  Download_text: "Download Our Mobile App",
+  connected_us_text: "Stay connected with us",
   url: "http://localhost:3000",
 
-  mainNav: [
+  socialLink: [
     {
-      title: "কোর্স",
-      href: "/courses",
-      description: "Read our latest blog posts.",
-      items: [
-        {
-          title: "ডিজিটাল মার্কেটিং",
-          description: "গ্রাফিক ডিজাইন, ইউ আই ইউ এক্স ডিজাইন, মোশন গ্রাফিক",
-          items: [],
-          href: "/courses?type=marketing",
-          icon: "/images/courses/marketing.png",
-        },
-        {
-          title: "ডিজাইন",
-          description: "গ্রাফিক ডিজাইন, ইউ আই ইউ এক্স ডিজাইন, মোশন গ্রাফিক",
-          items: [],
-          icon: "/images/courses/design.png",
-          href: "/courses?type=design",
-        },
-        {
-          title: "ডেভেলপমেন্ট",
-          description: "গ্রাফিক ডিজাইন, ইউ আই ইউ এক্স ডিজাইন, মোশন গ্রাফিক",
-          items: [],
-          icon: "/images/courses/development.png",
-          href: "/courses?type=development",
-        },
-        {
-          title: "বিজনেস",
-          description: "গ্রাফিক ডিজাইন, ইউ আই ইউ এক্স ডিজাইন, মোশন গ্রাফিক",
-          items: [],
-          icon: "/images/courses/business.png",
-          href: "/courses?type=bussiness",
-        },
-        {
-          title: "ভিডিও ও এনিমেশন 2",
-          description: "গ্রাফিক ডিজাইন, ইউ আই ইউ এক্স ডিজাইন, মোশন গ্রাফিক",
-          href: "/courses?type=video-animation",
-          icon: "/images/courses/video.png",
-          items: [],
-        },
-        {
-          title: "টেকনোলজি",
-          description: "গ্রাফিক ডিজাইন, ইউ আই ইউ এক্স ডিজাইন, মোশন গ্রাফিক",
-          icon: "/images/courses/technology.png",
-          items: [],
-          href: "/courses?type=technology",
-        },
-      ],
+      item: "facebook",
+      link: "#",
+      icon: facebook,
+      external: false,
     },
+    {
+      item: "Youtube",
+      link: "#",
+      icon: youtube,
+      external: false,
+    },
+    {
+      item: "linkedin",
+      link: "#",
+      icon: linkedin,
+      external: false,
+    },
+  ],
 
-    {
-      title: "আমাদের সম্পর্কে",
-      href: "/about",
-      description: "All the products we have to offer.",
-      items: [],
-    },
-    {
-      title: "স্টুডেন্ট রিভিউ",
-      href: "/reviews",
-      description: "All the products we have to offer.",
-      items: [],
-    },
-    {
-      title: "ইনস্ট্রাক্টর",
-      href: "/instructors",
-      description: "All the products we have to offer.",
-      items: [],
-    },
-  ] satisfies MainNavItem[],
-  links,
+  // mainNav: [
+  //   {
+  //     title: "OTHER PAGES",
+  //     href: "/courses",
+  //     description: "Read our latest blog posts.",
+  //     items: [
+  //       {
+  //         title: "Blog",
+  //         description: "Blog",
+  //         items: [],
+  //         href: "/blog",
+  //         icon: "",
+  //       },
+  //       {
+  //         title: "Help",
+  //         description: "Help",
+  //         items: [],
+  //         icon: "",
+  //         href: "/Help",
+  //       },
+  //       {
+  //         title: "Terms of use",
+  //         description: "Terms of use",
+  //         items: [],
+  //         icon: "",
+  //         href: "/Termsofuse",
+  //       },
+  //       {
+  //         title: "Privacy policy",
+  //         description: "Privacy policy",
+  //         items: [],
+  //         icon: "",
+  //         href: "/Privacy policy",
+  //       },
+  //       {
+  //         title: "As a provider",
+  //         description: "As a provider",
+  //         href: "/As a provider",
+  //         icon: "",
+  //         items: [],
+  //       },
+  //     ],
+  //   },
+
+  //   {
+  //     title: "Community",
+  //     href: "/Community",
+  //     description: "Community",
+  //     items: [],
+  //   },
+  //   {
+  //     title: "Become A Seller",
+  //     href: "/reviews",
+  //     description: "Become A Seller",
+  //     items: [],
+  //   },
+
+  // ] satisfies MainNavItem[],
+  // links,
   footerNav: [
     {
-      title: "কুইক লিংক",
+      title: "OTHER PAGES",
       items: [
         {
-          title: "আপকামিং লাইভ ব্যাচ",
+          title: "Blog",
           href: "/",
           external: false,
+          icon: "",
         },
         {
-          title: "লাইভ ক্লাস",
+          title: "Help",
           href: "/",
           external: false,
+          icon: "",
         },
         {
-          title: "আপকামিং লাইভ ব্যাচ",
+          title: "Terms of use",
           href: "/",
           external: false,
+          icon: "",
+        },
+        {
+          title: " Privacy policy",
+          href: "/",
+          external: false,
+          icon: "",
+        },
+        {
+          title: "As a provider",
+          href: "/",
+          external: false,
+          icon: "",
         },
       ],
     },
     {
-      title: "কোম্পানি",
+      title: "COMMUNITY",
       items: [
         {
-          title: "আমাদের সম্পর্কে",
-          href: "/about",
+          title: "Become A Seller",
+          href: "/BecomeASeller",
           external: false,
-        },
-        {
-          title: "রিফান্ড পলিসি",
-          href: "/contact",
-          external: false,
-        },
-        {
-          title: "প্রাইভেসী পলিসি",
-          href: "/terms",
-          external: false,
-        },
-        {
-          title: "টার্মস এবং শর্তাবলী",
-          href: "/privacy",
-          external: false,
+          icon: "",
         },
       ],
     },
     {
-      title: "টার্মস এবং শর্তাবলী",
+      title: "Contact",
       items: [
         {
-          title: "Phone: 01798 - 84753",
-          href: links.twitter,
+          title: "+8809677889900",
+          href: links.eamil,
           external: true,
+          icon:dock,
+        },
+
+        {
+          title: "info@troubleshoot.com.bd",
+          href: links.eamil,
+          external: true,
+          icon:mail,
         },
         {
-          title: "Email: ecoacademy@gmail.com",
-          href: links.githubAccount,
+          title: "Corporate Address",
+          href: links.eamil,
           external: true,
+          icon:"",
         },
         {
-          title: "Location: Tangail, Dhaka, Bangladesh",
-          href: links.discord,
+          title: "Road 11,House11,Bonani, Dhaka-1213 Bangladesh",
+          href: links.eamil,
           external: true,
+          icon:distance,
         },
       ],
     },

@@ -15,6 +15,7 @@ export interface NavItemWithChildren extends NavItem {
 export interface NavItemWithOptionalChildren extends NavItem {
   items?: NavItemWithChildren[];
 }
+export type StaticImageData = { src: string; height: number; width: number; blurDataURL?: string; }
 
 export interface FooterItem {
   title: string;
@@ -22,6 +23,7 @@ export interface FooterItem {
     title: string;
     href: string;
     external?: boolean;
+    icon?: string | StaticImageData
   }[];
 }
 
@@ -102,8 +104,6 @@ export interface LoginApiResponse {
     };
   };
 }
-
-
 
 export interface IAuthUser {
   otp: {
