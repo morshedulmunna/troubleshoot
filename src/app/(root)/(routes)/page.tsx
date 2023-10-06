@@ -21,6 +21,7 @@ import { CompletionSummary } from "@/components/section/CompletionSummary";
 import { Reviews } from "@/components/section/Reviews";
 import { AppDownload } from "@/components/section/AppDownload";
 import { AppointmentBook } from "@/components/section/AppointmentBook";
+import "react-alice-carousel/lib/alice-carousel.css";
 
 export default function Home() {
   const { onOpen } = useAlertModal();

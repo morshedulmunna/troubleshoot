@@ -13,7 +13,6 @@ import { cn, truncate } from "@/lib/utils";
 import ReviewerImg from "@/images/Ellipse298.png";
 
 import AliceCarousel from "react-alice-carousel";
-import "react-alice-carousel/lib/alice-carousel.css";
 
 interface ReviewProps {
   review: {}; // Make sure the expected prop name and type match
