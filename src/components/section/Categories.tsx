@@ -17,20 +17,34 @@ interface CategoryProps {
   className?: string;
 }
 const responsive = {
-  0: { items: 1 },
-  568: { items: 5 },
+  0: { items: 1 }, // On small screens, show 1 item
+  768: { items: 3 }, // On medium screens, show 3 items
   1024: { items: 6 },
 };
 
 export const Category: React.FC<CategoryProps> = ({ category, className }) => {
   return (
     <Fragment>
-      <Link href="#" className={cn("relative rounded-lg h-24 w-32 overflow-hidden ", className)}>
-        <div className="relative overflow-hidden h-16 flex items-center justify-center">
-          <BlurImage src={category.image} alt="" width={400} height={200} className="relative object-cover" />
+      <Link
+        href="#"
+        className={cn(
+          "relative rounded-lg  overflow-hidden ",
+          className
+        )}
+      >
+        <div className="relative overflow-hidden h-32 flex items-center justify-center">
+          <BlurImage
+            src={category.image}
+            alt=""
+            width={400}
+            height={200}
+            className="relative object-cover"
+          />
         </div>
         <div className="relative">
-          <h2 className="line-clamp-1 text-center">{truncate(category.name, 15)}</h2>
+          <h2 className="line-clamp-1 text-center">
+            {truncate(category.name, 15)}
+          </h2>
         </div>
       </Link>
     </Fragment>
@@ -41,6 +55,36 @@ export const Categories = () => {
   const [loading, setLoading] = useState(true);
   const [categories, setCategories] = useState<Category[]>([]);
   const [carouselItems, setCarouselItems] = useState([]);
+  // const demoCategories = [
+  //   {
+  //     name:"It and repair",
+  //     image:"https://res.cloudinary.com/dub6q8hhb/image/upload/v1696654855/software-application_1_tlmidf.png"
+  //   },
+  //   {
+  //     name:"It and repair",
+  //     image:"https://res.cloudinary.com/dub6q8hhb/image/upload/v1696654855/software-application_1_tlmidf.png"
+  //   },
+  //   {
+  //     name:"It and repair",
+  //     image:"https://res.cloudinary.com/dub6q8hhb/image/upload/v1696654855/software-application_1_tlmidf.png"
+  //   },
+  //   {
+  //     name:"It and repair",
+  //     image:"https://res.cloudinary.com/dub6q8hhb/image/upload/v1696654855/software-application_1_tlmidf.png"
+  //   },
+  //   {
+  //     name:"It and repair",
+  //     image:"https://res.cloudinary.com/dub6q8hhb/image/upload/v1696654855/software-application_1_tlmidf.png"
+  //   },
+  //   {
+  //     name:"It and repair",
+  //     image:"https://res.cloudinary.com/dub6q8hhb/image/upload/v1696654855/software-application_1_tlmidf.png"
+  //   },
+  //   {
+  //     name:"It and repair",
+  //     image:"https://res.cloudinary.com/dub6q8hhb/image/upload/v1696654855/software-application_1_tlmidf.png"
+  //   }
+  // ]
 
   useEffect(() => {
     const getServices = async () => {
@@ -50,7 +94,9 @@ export const Categories = () => {
         if (response.status) {
           const categories = response.data.categories;
           setCategories(categories);
-          setCarouselItems(categories?.map((category: any) => <Category category={category} />));
+          setCarouselItems(
+            categories?.map((category: any) => <Category category={category} />)
+          );
         }
       } catch (error) {
         setCategories([]);
@@ -62,8 +108,8 @@ export const Categories = () => {
 
   return (
     <Fragment>
-      <div className="relative w-full bg-primary-50 h-36 rounded-md gap-5 flex items-center">
-        <div className="relative flex items-center gap-4 px-8 ">
+      <div className="relative w-full bg-primary-50 rounded-md gap-5 flex items-center">
+        {/* <div className="relative flex items-center gap-4 px-8 "> */}
           {/* {Array.from({ length: 10 }).map((_, i) => (
 						<CategorySkeleton
 							className={cn(
@@ -76,7 +122,10 @@ export const Categories = () => {
           {loading ? (
             <Fragment>
               {Array.from({ length: 10 }).map((_, i) => (
-                <CategorySkeleton className={cn(i > 7 && "xl:hidden", i > 8 && "lg:hidden")} key={i} />
+                <CategorySkeleton
+                  className={cn(i > 7 && "xl:hidden", i > 8 && "lg:hidden")}
+                  key={i}
+                />
               ))}
             </Fragment>
           ) : (
@@ -86,13 +135,13 @@ export const Categories = () => {
                 mouseTracking
                 responsive={responsive}
                 items={carouselItems}
-                // renderNextButton={() => {
-                //   return (
-                //     <div className="flex justify-start mt-10">
-                //       <div className="w-9 h-2.5 bg-gray-400 rounded-lg" />
-                //     </div>
-                //   );
-                // }}
+                renderNextButton={() => {
+                  return (
+                    <div className="flex justify-start mt-10">
+                      <div className="w-9 h-2.5 bg-gray-400 rounded-lg" />
+                    </div>
+                  );
+                }}
                 // renderPrevButton={() => {
                 //   return (
                 //     <div className="flex justify-end  mt-10">
@@ -115,7 +164,7 @@ export const Categories = () => {
               ))} */}
             </Fragment>
           )}
-        </div>
+        {/* </div> */}
       </div>
     </Fragment>
   );
@@ -123,7 +172,12 @@ export const Categories = () => {
 
 const CategorySkeleton = ({ ...props }) => {
   return (
-    <div className={cn("relative bg-white h-20 rounded-lg overflow-hidden", props?.className)}>
+    <div
+      className={cn(
+        "relative bg-white h-20 rounded-lg overflow-hidden",
+        props?.className
+      )}
+    >
       <Skeleton className="h-14 flex justify-center items-center">
         <svg
           xmlns="http://www.w3.org/2000/svg"

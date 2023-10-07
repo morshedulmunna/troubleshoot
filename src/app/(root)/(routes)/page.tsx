@@ -57,7 +57,7 @@ export default function Home() {
           All Recommended
         </Button>
 
-        <Prose enable={false} className="relative w-full overflow-scroll">
+        <Prose enable={false} className="relative w-full">
           <Categories />
         </Prose>
       </div>
