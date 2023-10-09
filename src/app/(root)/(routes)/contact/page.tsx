@@ -8,7 +8,6 @@ export default function CookiePolicy() {
 	return (
 		<Contents className="max-w-6xl mx-auto ">
 			<Heading level={1}>Contact</Heading>
-
 			<div className="relative w-full py-10 xl:pt-10">
 				<ContactUs />
 			</div>
