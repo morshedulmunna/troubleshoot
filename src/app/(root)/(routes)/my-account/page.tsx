@@ -10,10 +10,8 @@ import { Prose } from "@/components/Prose";
 export default function ReturnPolicy() {
   return (
     <Contents className="max-w-6xl mx-auto">
-      <Heading level={1}>Return policy</Heading>
-      <div className="relative w-full py-10 xl:pt-10 ">
-        <MyAccount />
-      </div>
+      <Heading level={1}>My account</Heading>
+      <MyAccount />
     </Contents>
   );
 }
