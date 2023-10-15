@@ -21,13 +21,13 @@ export const MyAccount = () => {
     <div className="grid grid-cols-4 grid-flow-col gap-20 relative w-full py-10 xl:pt-10">
       <UserAccountTab />
       <div className="col-span-3">
-        {/* <UserProfileImage /> */}
-        {/* <FormChangeTabBTN /> */}
-        {/* <GeneralInfo /> */}
+        <UserProfileImage />
+        <FormChangeTabBTN />
+        <GeneralInfo />
         {/* <AccountInfo /> */}
         {/* <Address /> */}
         {/* <Notification /> */}
-        <Logout />
+        {/* <Logout /> */}
       </div>
     </div>
   );
