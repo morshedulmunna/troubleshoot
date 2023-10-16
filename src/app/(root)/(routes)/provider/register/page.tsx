@@ -5,7 +5,7 @@ import React from "react";
 
 export default function ProviderRegisterPage() {
   return (
-    <div className=" flex flex-col w-full">
+    <div className="flex flex-col w-full">
       <div className="relative flex justify-center ">
         <Logo className="h-20 w-20 object-contain" />
       </div>
