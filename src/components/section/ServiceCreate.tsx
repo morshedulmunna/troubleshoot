@@ -20,7 +20,8 @@ import { Heading } from "../Heading";
 export const ServiceCreate = () => {
   return (
     <div className="relative  py-10 xl:pt-10">
-      <GeneralInfo />
+      {/* <FirstStep /> */}
+      <SecondStep />
     </div>
   );
 };
@@ -45,7 +46,7 @@ export const UserProfileImage = () => {
   );
 };
 
-export const GeneralInfo = () => {
+export const FirstStep = () => {
   return (
     <form className="w-2/3 mx-auto">
       <BlurImage className="mx-auto" width={80} src={inputImage} />
@@ -164,6 +165,81 @@ export const GeneralInfo = () => {
           variant="filled"
         >
           Save Changes
+        </Button>
+      </div>
+    </form>
+  );
+};
+
+export const SecondStep = () => {
+  return (
+    <form className="w-2/3 mx-auto">
+      <div className="flex flex-wrap -mx-3 mb-6">
+        <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+          <label
+            className="block  tracking-wide text-gray-700 text-xs font-bold mb-3"
+            htmlFor="grid-first-name"
+          >
+            Discount %
+          </label>
+          <input
+            className="appearance-none block w-full bg-primary-100 text-black rounded py-4 px-4 mb-3 leading-tight border-0 focus:bg-white focus:border-primary-500"
+            id="grid-first-name"
+            type="text"
+            placeholder="Jane"
+          />
+        </div>
+        <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+          <label
+            className="block  tracking-wide text-gray-700 text-xs font-bold mb-3"
+            htmlFor="grid-first-name"
+          >
+            Duration ( Hours- Minutes)
+          </label>
+          <input
+            className="appearance-none block w-full bg-primary-100 text-black rounded py-4 px-4 mb-3 leading-tight border-0 focus:bg-white focus:border-primary-500"
+            id="grid-first-name"
+            type="text"
+            placeholder="Jane"
+          />
+          {/* <p className="text-red-500 text-xs italic">Please fill out this field.</p> */}
+        </div>
+
+        <div className="w-full  px-3 mb-6 md:mb-0">
+          <label
+            className="block  tracking-wide text-gray-700 text-xs font-bold mb-3"
+            htmlFor="grid-first-name"
+          >
+            Text
+          </label>
+          <textarea
+            className="appearance-none block w-full bg-primary-100 text-black rounded py-4 px-4 mb-3 leading-tight border-0 focus:bg-white focus:border-primary-500"
+            id="grid-first-name"
+            placeholder="Jane"
+          />
+        </div>
+
+        <div className="w-full  px-3 mb-6 md:mb-0">
+          <label
+            className="block  tracking-wide text-gray-700 text-xs font-bold mb-3"
+            htmlFor="grid-first-name"
+          >
+            Short description
+          </label>
+          <textarea
+            className="appearance-none block w-full bg-primary-100 text-black rounded py-4 px-4 mb-3 leading-tight border-0 focus:bg-white focus:border-primary-500"
+            id="grid-first-name"
+            placeholder="Jane"
+          />
+        </div>
+        
+      </div>
+      <div className="w-full text-center">
+        <Button
+          className="font-semibold mx-auto bg-primary-500/90 hover:bg-primary-500 text-white rounded px-16 py-2"
+          variant="filled"
+        >
+          Next
         </Button>
       </div>
     </form>
