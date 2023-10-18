@@ -12,7 +12,7 @@ export const APP_NAME: string = process.env.APP_NAME ?? "Troubleshoot";
 export function constructMetadata({
 	title = "Troubleshoot",
 	description = "One-stop Solution for your Services.",
-	image = "https://www.awesomecoder.dev/avatar.jpg",
+	image = "/src/images/logos/logo.png",
 }: {
 	title?: string;
 	description?: string;
