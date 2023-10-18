@@ -51,7 +51,7 @@ export default function Error({
 					</div>
 				</div>
 			</Prose>
-			<Footer className="py-6" />
+			<Footer/>
 		</Fragment>
 	);
 }

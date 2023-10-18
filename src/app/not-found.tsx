@@ -53,7 +53,7 @@ export default function NotFound() {
 						</div>
 					</div>
 				</Prose>
-				<Footer className="py-6" />
+				<Footer />
 			</body>
 		</html>
 	);

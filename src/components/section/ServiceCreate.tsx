@@ -49,7 +49,7 @@ export const UserProfileImage = () => {
 export const FirstStep = () => {
   return (
     <form className="w-2/3 mx-auto">
-      <BlurImage className="mx-auto" width={80} src={inputImage} />
+      <BlurImage className="mx-auto" width={80} src={inputImage} alt="image" />
       <div className="flex flex-wrap -mx-3 mb-6">
         <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
           <label
