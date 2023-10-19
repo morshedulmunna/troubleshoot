@@ -1,12 +1,12 @@
 import LoginModal from "@/components/modals/login-modal";
-import React, { Fragment, useEffect } from "react";
+import {Fragment} from "react";
 
 const Contact = () => {
-	return (
-		<Fragment>
-			<LoginModal />
-		</Fragment>
-	);
+    return (
+        <Fragment>
+            <LoginModal />
+        </Fragment>
+    );
 };
 
 export default Contact;
