@@ -171,3 +171,17 @@ interface Category {
     is_featured: number;
     subcategories?: Category[];
 }
+
+interface Service {
+    id: number;
+    customer: {};
+    status: string;
+    service: {
+        id: number;
+        price: string;
+        short_description: string;
+        updated_at: string;
+        image: string;
+        status: number;
+    };
+}
