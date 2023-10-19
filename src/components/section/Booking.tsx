@@ -13,9 +13,33 @@ import axios from "@/lib/axios";
 export const Booking = () => {
     const [tab, setTab] = useState("all-services");
     const [loading, setLoading] = useState(true);
-    const [booking, setBooking] = useState<any>([]);
+    const [booking, setBooking] = useState<any[]>([]);
+    const [pendingServices, setPendingServices] = useState<any[]>([]);
+    const [acceptedServices, setAcceptedServices] = useState<any[]>([]);
+    const [completedServices, setCompletedServices] = useState<any[]>([]);
+    const [CanceledServices, setCanceledServices] = useState<any[]>([]);
 
-    console.log(booking);
+    useEffect(() => {
+        const pendingServicesData = booking.filter(
+            (each) => each.status === "pending"
+        );
+
+        const acceptedServicesData = booking.filter(
+            (each) => each.status === "accepted"
+        );
+
+        const completedServicesData = booking.filter(
+            (each) => each.status === "completed"
+        );
+        const canceledServicesData = booking.filter(
+            (each) => each.status === "canceled"
+        );
+
+        setPendingServices(pendingServicesData);
+        setAcceptedServices(acceptedServicesData);
+        setCanceledServices(completedServicesData);
+        setCanceledServices(canceledServicesData);
+    }, [booking]);
 
     useEffect(() => {
         const getBooking = async () => {
@@ -39,11 +63,46 @@ export const Booking = () => {
         <div className="grid grid-cols-4 grid-flow-col gap-20 relative w-full py-10 xl:pt-10">
             <BookingTab tab={tab} setTab={setTab} />
             <div className="col-span-3">
-                {tab === "all-services" && <Services />}
-                {tab === "pending" && <Services />}
-                {tab === "accepted" && <Services />}
-                {tab === "completed" && <Services />}
-                {tab === "canceled" && <Services />}
+                {tab === "all-services" &&
+                    booking.map((service, index) => (
+                        <Services
+                            key={service.id}
+                            index={index + 1}
+                            service={service}
+                        />
+                    ))}
+                {tab === "pending" &&
+                    pendingServices.map((service, index) => (
+                        <Services
+                            key={service.id}
+                            index={index + 1}
+                            service={service}
+                        />
+                    ))}
+                {tab === "accepted" &&
+                    acceptedServices.map((service, index) => (
+                        <Services
+                            key={service.id}
+                            index={index + 1}
+                            service={service}
+                        />
+                    ))}
+                {tab === "completed" &&
+                    completedServices.map((service, index) => (
+                        <Services
+                            key={service.id}
+                            index={index + 1}
+                            service={service}
+                        />
+                    ))}
+                {tab === "canceled" &&
+                    CanceledServices.map((service, index) => (
+                        <Services
+                            key={service.id}
+                            index={index + 1}
+                            service={service}
+                        />
+                    ))}
             </div>
         </div>
     );
@@ -157,30 +216,37 @@ export const BookingTab = ({tab, setTab}: {tab: string; setTab: any}) => {
     );
 };
 
-export const Services = () => {
+export const Services = ({service, index}: {service?: any; index?: number}) => {
+    console.log(typeof service);
+
+    if (!service) {
+        return <p>No Data</p>;
+    }
+    const {name, price, image} = service?.service;
+
     return (
-        <div className="grid flex-col w-full bg-primary-50  rounded-lg shadow  dark:bg-gray-800 dark:border-gray-700">
+        <div className="grid mb-4 flex-col w-full bg-primary-50  rounded-lg shadow  dark:bg-gray-800 dark:border-gray-700">
             <div className="flex py-3 sm:py-4 px-4  space-x-4">
-                <h1 className="text-2xl text-black font-medium">01</h1>
+                <h1 className="text-2xl text-black font-medium">{index}</h1>
                 <div>
                     <Image
                         height={100}
                         width={100}
                         className="m-0"
-                        src={DemoBooking}
+                        src={image}
                         alt="Neil image"
                     />
                 </div>
+
                 <div className="flex-1 min-w-0">
-                    <h6 className="text-lg color-black font-medium mr-10 leading-6">
-                        IT Troubleshooting and Repair (Troubleshooting){" "}
+                    <h6 className="text-lg capitalize color-black font-medium mr-10 leading-6">
+                        {name || ""}
                     </h6>
                     <h6 className="text-sm flex items-center gap-2 text[#868686]">
                         <Settings color="#868686" size={15} /> IT
                         Troubleshooting and Repair
                     </h6>
                     <h6 className="text-sm flex items-center  gap-2 text[#868686]">
-                        {" "}
                         <MapPin color="#868686" size={15} />
                         Dhanmondi 32 road Bridge
                     </h6>
@@ -190,7 +256,7 @@ export const Services = () => {
                         Date: 01/01/2023, Time: 12:00 PM
                     </h6>
                     <h6 className="text-2xl text-primary-500 font-medium mt-5">
-                        ৳3,500
+                        ৳{price || 0}
                     </h6>
                 </div>
             </div>
