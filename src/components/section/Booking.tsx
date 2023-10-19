@@ -12,13 +12,13 @@ import {useEffect, useState} from "react";
 import axios from "@/lib/axios";
 import convertTimestampToDesiredFormat from "@/lib/convertTimestampFormat";
 export const Booking = () => {
-    const [tab, setTab] = useState("all-services");
-    const [loading, setLoading] = useState(true);
+    const [tab, setTab] = useState<string>("all-services");
+    const [loading, setLoading] = useState<boolean>(true);
     const [booking, setBooking] = useState<any[]>([]);
-    const [pendingServices, setPendingServices] = useState<any[]>([]);
-    const [acceptedServices, setAcceptedServices] = useState<any[]>([]);
-    const [completedServices, setCompletedServices] = useState<any[]>([]);
-    const [CanceledServices, setCanceledServices] = useState<any[]>([]);
+    const [pendingServices, setPendingServices] = useState<Service[]>([]);
+    const [acceptedServices, setAcceptedServices] = useState<Service[]>([]);
+    const [completedServices, setCompletedServices] = useState<Service[]>([]);
+    const [CanceledServices, setCanceledServices] = useState<Service[]>([]);
 
     useEffect(() => {
         const pendingServicesData = booking.filter(
@@ -38,7 +38,7 @@ export const Booking = () => {
 
         setPendingServices(pendingServicesData);
         setAcceptedServices(acceptedServicesData);
-        setCanceledServices(completedServicesData);
+        setCompletedServices(completedServicesData);
         setCanceledServices(canceledServicesData);
     }, [booking]);
 
@@ -218,15 +218,14 @@ export const BookingTab = ({tab, setTab}: {tab: string; setTab: any}) => {
 };
 
 export const Services = ({service, index}: {service?: any; index?: number}) => {
-    console.log(service);
-
     if (!service) {
         return <p>No Data</p>;
     }
-    const {name, price, image, created_at} = service?.service;
 
+    const {service: serv, customer} = service;
+
+    const {name, price, image, created_at, short_description} = serv;
     const dateTime = convertTimestampToDesiredFormat(created_at);
-    console.log(dateTime.date);
 
     return (
         <div className="grid mb-4 flex-col w-full bg-primary-50  rounded-lg shadow  dark:bg-gray-800 dark:border-gray-700">
@@ -248,11 +247,12 @@ export const Services = ({service, index}: {service?: any; index?: number}) => {
                     </h6>
                     <h6 className="text-sm flex items-center gap-2 text[#868686]">
                         <Settings color="#868686" size={15} /> IT
-                        Troubleshooting and Repair
+                        {short_description}
                     </h6>
                     <h6 className="text-sm flex items-center  gap-2 text[#868686]">
                         <MapPin color="#868686" size={15} />
-                        Dhanmondi 32 road Bridge
+                        {customer.address.city} {customer.address.zip}{" "}
+                        {customer.address.apartment_name}
                     </h6>
                 </div>
                 <div className="flex flex-col items-start dark:text-white h-full">
