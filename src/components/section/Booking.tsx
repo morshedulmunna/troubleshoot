@@ -10,6 +10,7 @@ import Image from "next/image";
 import {MapPin, Settings} from "lucide-react";
 import {useEffect, useState} from "react";
 import axios from "@/lib/axios";
+import convertTimestampToDesiredFormat from "@/lib/convertTimestampFormat";
 export const Booking = () => {
     const [tab, setTab] = useState("all-services");
     const [loading, setLoading] = useState(true);
@@ -217,12 +218,15 @@ export const BookingTab = ({tab, setTab}: {tab: string; setTab: any}) => {
 };
 
 export const Services = ({service, index}: {service?: any; index?: number}) => {
-    console.log(typeof service);
+    console.log(service);
 
     if (!service) {
         return <p>No Data</p>;
     }
-    const {name, price, image} = service?.service;
+    const {name, price, image, created_at} = service?.service;
+
+    const dateTime = convertTimestampToDesiredFormat(created_at);
+    console.log(dateTime.date);
 
     return (
         <div className="grid mb-4 flex-col w-full bg-primary-50  rounded-lg shadow  dark:bg-gray-800 dark:border-gray-700">
@@ -253,7 +257,7 @@ export const Services = ({service, index}: {service?: any; index?: number}) => {
                 </div>
                 <div className="flex flex-col items-start dark:text-white h-full">
                     <h6 className="text-base text-gray-900">
-                        Date: 01/01/2023, Time: 12:00 PM
+                        Date: {dateTime.date}, Time: {dateTime.time}
                     </h6>
                     <h6 className="text-2xl text-primary-500 font-medium mt-5">
                         ৳{price || 0}
