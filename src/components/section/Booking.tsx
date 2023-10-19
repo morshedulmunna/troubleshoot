@@ -8,21 +8,56 @@ import selectIcon from "@/images/icons/select-all.png";
 import Image from "next/image";
 
 import {MapPin, Settings} from "lucide-react";
+import {useEffect, useState} from "react";
+import axios from "@/lib/axios";
 export const Booking = () => {
+    const [tab, setTab] = useState("all-services");
+    const [loading, setLoading] = useState(true);
+    const [booking, setBooking] = useState<any>([]);
+
+    console.log(booking);
+
+    useEffect(() => {
+        const getBooking = async () => {
+            try {
+                const request = await axios.get(`/auth/customer/booking`);
+                const response: AxiosResponse = await request.data;
+
+                if (response.status) {
+                    const Booking = response.data.bookings.data;
+                    setBooking(Booking);
+                }
+            } catch (error) {
+                setBooking([]);
+            }
+            setLoading(false);
+        };
+        getBooking();
+    }, []);
+
     return (
         <div className="grid grid-cols-4 grid-flow-col gap-20 relative w-full py-10 xl:pt-10">
-            <BookingTab />
+            <BookingTab tab={tab} setTab={setTab} />
             <div className="col-span-3">
-                <Services />
+                {tab === "all-services" && <Services />}
+                {tab === "pending" && <Services />}
+                {tab === "accepted" && <Services />}
+                {tab === "completed" && <Services />}
+                {tab === "canceled" && <Services />}
             </div>
         </div>
     );
 };
 
-export const BookingTab = () => {
+export const BookingTab = ({tab, setTab}: {tab: string; setTab: any}) => {
     return (
         <div className=" -mb-px text-sm font-medium text-gray-500 dark:text-gray-400">
-            <li className="mr-2 list-none bg-primary-100">
+            <li
+                onClick={() => setTab("all-services")}
+                className={`mr-2 list-none ${
+                    tab === "all-services" ? "bg-primary-100" : null
+                }`}
+            >
                 <a
                     href="#"
                     className="inline-flex items-center justify-start	 p-4  rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300 group"
@@ -37,7 +72,12 @@ export const BookingTab = () => {
                     <span className="ml-2"> All Services</span>
                 </a>
             </li>
-            <li className="mr-2 list-none	">
+            <li
+                onClick={() => setTab("pending")}
+                className={`mr-2 list-none ${
+                    tab === "pending" ? "bg-primary-100" : null
+                }`}
+            >
                 <a
                     href="#"
                     className="inline-flex items-center justify-start	 p-4 rounded-t-lg active dark:text-blue-500 dark:border-blue-500 group"
@@ -53,7 +93,12 @@ export const BookingTab = () => {
                     <span className="ml-2">Pending</span>
                 </a>
             </li>
-            <li className="mr-2 list-none	">
+            <li
+                onClick={() => setTab("accepted")}
+                className={`mr-2 list-none ${
+                    tab === "accepted" ? "bg-primary-100" : null
+                }`}
+            >
                 <a
                     href="#"
                     className="inline-flex items-center justify-start	 p-4  rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300 group"
@@ -68,7 +113,12 @@ export const BookingTab = () => {
                     <span className="ml-2">Accepted</span>
                 </a>
             </li>
-            <li className="mr-2 list-none	">
+            <li
+                onClick={() => setTab("completed")}
+                className={`mr-2 list-none ${
+                    tab === "completed" ? "bg-primary-100" : null
+                }`}
+            >
                 <a
                     href="#"
                     className="inline-flex items-center justify-start	 p-4  rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300 group"
@@ -83,7 +133,12 @@ export const BookingTab = () => {
                     <span className="ml-2"> Completed</span>
                 </a>
             </li>
-            <li className="mr-2 list-none	">
+            <li
+                onClick={() => setTab("canceled")}
+                className={`mr-2 list-none ${
+                    tab === "canceled" ? "bg-primary-100" : null
+                }`}
+            >
                 <a
                     href="#"
                     className="inline-flex items-center justify-start	 p-4  rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300 group"
